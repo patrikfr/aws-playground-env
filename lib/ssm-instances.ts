@@ -75,7 +75,6 @@ export class SsmInstances extends core.Construct {
             ],
         });
         privateInstance.role.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName("AmazonSSMManagedInstanceCore"));
-        privateInstance.role.addManagedPolicy(iam.ManagedPolicy.fromAwsManagedPolicyName("CloudWatchAgentServerPolicy"));
         privateInstance.connections.allowTo(ssmVpcEndpoint, ec2.Port.tcp(443));
         privateInstance.connections.allowTo(ec2MessagesVpcEndpoint, ec2.Port.tcp(443));
         privateInstance.connections.allowTo(ssmMessagesVpcEndpoint, ec2.Port.tcp(443));
