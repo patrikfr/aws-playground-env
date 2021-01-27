@@ -26,3 +26,9 @@ Use Session Manager from the AWS console or the AWS CLI (requires [Session Manag
 ```
 cdk deploy AwsVpcSsmStack
 ```
+
+## Cleanup
+Destroy all stacks (will delete all created resoruces):
+```
+cdk destroy --all
+```
