@@ -27,6 +27,6 @@ const stackProps = {
     }
 }
 
-new stacks.AwsPlaygroundEnvSsmStack(app, 'AwsPlaygroundEnvSsmStack', stackProps);
-new stacks.AwsPlaygroundEnvConnectStack(app, 'AwsPlaygroundEnvConnectStack', peerCidrIp, stackProps);
-new stacks.AwsPlaygroundEnvSshStack(app, 'AwsPlaygroundEnvSshStack', peerCidrIp, keyName, stackProps);
+new stacks.AwsVpcSsmStack(app, 'AwsVpcSsmStack', stackProps);
+new stacks.AwsVpcConnectStack(app, 'AwsVpcConnectStack', peerCidrIp, stackProps);
+new stacks.AwsVpcSshStack(app, 'AwsVpcSshStack', peerCidrIp, keyName, stackProps);

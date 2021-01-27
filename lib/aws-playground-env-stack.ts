@@ -29,21 +29,21 @@ class AwsPlaygroundEnvBaseStack extends cdk.Stack {
     }
 }
 
-export class AwsPlaygroundEnvSsmStack extends AwsPlaygroundEnvBaseStack {
+export class AwsVpcSsmStack extends AwsPlaygroundEnvBaseStack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
         new SsmInstances(this, 'SsmAwsInstances', this.createVpc(this), this.availabilityZones[0]);
     }
 }
 
-export class AwsPlaygroundEnvConnectStack extends AwsPlaygroundEnvBaseStack {
+export class AwsVpcConnectStack extends AwsPlaygroundEnvBaseStack {
     constructor(scope: cdk.Construct, id: string, peerCidrIp: string, props?: cdk.StackProps) {
         super(scope, id, props);
         new Ec2ConnectInstances(this, 'Ec2Instances', this.createVpc(this), peerCidrIp, this.availabilityZones[0]);
     }
 }
 
-export class AwsPlaygroundEnvSshStack extends AwsPlaygroundEnvBaseStack {
+export class AwsVpcSshStack extends AwsPlaygroundEnvBaseStack {
     constructor(scope: cdk.Construct, id: string, peerCidrIp: string, keyName: string, props?: cdk.StackProps) {
         super(scope, id, props);
         new SshInstances(this, 'SshInstances', this.createVpc(this), peerCidrIp, this.availabilityZones[0], keyName);
