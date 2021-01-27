@@ -50,13 +50,13 @@ export class SsmInstances extends core.Construct {
 
         const bastionHost = new ec2.BastionHostLinux(this, 'BastionHost', {
             vpc,
-            availabilityZone: 'eu-north-1a',
+            availabilityZone: az,
             subnetSelection: { subnetType: ec2.SubnetType.PUBLIC },
         });
 
         const privateInstance = new ec2.Instance(this, 'PrivateInstance', {
             vpc: vpc,
-            availabilityZone: 'eu-north-1a',
+            availabilityZone: az,
             vpcSubnets: {
                 subnetType: ec2.SubnetType.ISOLATED
             },
